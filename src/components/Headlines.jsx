@@ -58,11 +58,13 @@ const Headlines = () => {
   };
   const paginate = (number) => {
     setBtnInt(number);
+    setLoading(true)
+    window.scrollTo({top : 0, behavior:'smooth'})
     console.log(btnInt);
   };
 
   return (
-    <Container maxW={"container-xl"}>
+    <Container maxW={"container-xl"} >
       <form onSubmit={submitHandler} style={{ marginTop: "30px" }}>
         <VStack>
           <Input
@@ -72,7 +74,7 @@ const Headlines = () => {
             w={"50%"}
             placeholder="Enter Your Search Here..."
           />
-          <Button type="submit">Submit</Button>
+          <Button type="submit" onClick={() => setLoading(true)}>Submit</Button>
         </VStack>
       </form>
       <Container maxW={"container.xl"}>

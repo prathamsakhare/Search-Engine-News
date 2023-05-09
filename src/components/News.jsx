@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import axios from 'axios';
 const News = () => {
-      
+    
 
 const options = {
   method: 'GET',
