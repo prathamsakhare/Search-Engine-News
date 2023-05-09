@@ -30,7 +30,7 @@ const Headlines = () => {
       autoCorrect: "true",
     },
     headers: {
-      "X-RapidAPI-Key": "9ec33527cbmshfaf2fd1d87d9a76p18f24ajsnb026150744ca",
+      "X-RapidAPI-Key": "0dbc205294msh8b479bc23f44c90p1c51f6jsn0fbba5f14b24",
       "X-RapidAPI-Host": "contextualwebsearch-websearch-v1.p.rapidapi.com",
     },
   };
