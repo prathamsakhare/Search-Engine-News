@@ -11,17 +11,17 @@ import React from "react";
 const CardPad = ({ img, alt, title, baseUrl }) => {
   return (
     <a href={baseUrl}>
-      <Card maxW={"sm"} height={"350px"} mt={'5'}>
+      <Card maxW={"sm"} height={"400px"} mt={'5'}>
         <CardBody>
           <Image
             src={img}
             width={"95%"}
-            height={"50%"}
+            maxH={'200px'}
             marginX={"auto"}
             borderRadius={"md"}
           />
 
-          <Stack mt={6} spacing={3}>
+          <Stack mt={6} spacing={3} wordBreak={'break-word'}>
             <Heading size={"md"}>{title}</Heading>
           </Stack>
         </CardBody>

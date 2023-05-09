@@ -8,16 +8,18 @@ import {
   VStack,
   Heading,
   Center,
+  Container,
 } from "@chakra-ui/react";
 import CardPad from "./CardPad";
+import Loader from "./Loader";
 
 const Headlines = () => {
   const [result, setResult] = useState([]);
   const [endpoint, setEndpoint] = useState("");
-  const [finalPoint, setFinalPoint] = useState("");
+  const [finalPoint, setFinalPoint] = useState("Common News");
   const [btnInt, setBtnInt] = useState(1);
+  const [loading, setLoading] = useState(true);
   const btns = new Array(100).fill(1);
-
   const options = {
     method: "GET",
     url: "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/ImageSearchAPI",
@@ -28,7 +30,7 @@ const Headlines = () => {
       autoCorrect: "true",
     },
     headers: {
-      "X-RapidAPI-Key": "9ec33527cbmshfaf2fd1d87d9a76p18f24ajsnb026150744ca",
+      "X-RapidAPI-Key": "0dbc205294msh8b479bc23f44c90p1c51f6jsn0fbba5f14b24",
       "X-RapidAPI-Host": "contextualwebsearch-websearch-v1.p.rapidapi.com",
     },
   };
@@ -39,6 +41,7 @@ const Headlines = () => {
         const response = await axios.request(options);
         // console.log(response.data.value);
         setResult(response.data.value);
+        setLoading(false);
         console.log(result);
       } catch (error) {
         console.error(error);
@@ -59,7 +62,7 @@ const Headlines = () => {
   };
 
   return (
-    <div>
+    <Container maxW={"container-xl"}>
       <form onSubmit={submitHandler} style={{ marginTop: "30px" }}>
         <VStack>
           <Input
@@ -67,46 +70,68 @@ const Headlines = () => {
             value={endpoint}
             onChange={onChangeHandler}
             w={"50%"}
-            placeholder="Enter Celebrity Name Here..."
+            placeholder="Enter Your Search Here..."
           />
           <Button type="submit">Submit</Button>
         </VStack>
       </form>
-      
-        <Box
-          display={"flex"}
-          flexWrap={"wrap"}
-          justifyContent={"space-evenly"}
-          mt={5}
-          mx={4}
-        >
-          {result.map((item) => {
-            return (
-              <div>
-                <CardPad
-                  img={item.thumbnail}
-                  alt={item.title}
-                  title={item.title}
-                  baseUrl={item.webpageUrl}
-                />
-              </div>
-            );
-          })}
-        </Box>
-      
+      <Container maxW={"container.xl"}>
+        {loading ? (
+          <Loader />
+        ) : (
+          <Container maxW={"container.xl"}>
+            <Container maxW={"container.xl"} mt={10} mb={10}>
+              <Heading>{finalPoint}</Heading>
+            </Container>
+            
+            <Box
+              display={"flex"}
+              flexWrap={"wrap"}
+              justifyContent={"space-evenly"}
+              mt={5}
+              mx={4}
+            >
+              {result.map((item, index) => {
+                return (
+                  <div>
+                    <CardPad
+                      img={item.thumbnail}
+                      alt={item.title}
+                      title={item.title}
+                      baseUrl={item.webpageUrl}
+                      key={item.index}
+                    />
+                  </div>
+                );
+              })}
+            </Box>
 
-      <HStack width={"full"} overflowX={"auto"} p={"8"} className="example">
-        {finalPoint
-          ? btns.map((number, index) => {
-              return (
-                <Button value={btnInt} onClick={() => paginate(index + 1)}>
-                  {index + 1}
-                </Button>
-              );
-            })
-          : ""}
-      </HStack>
-    </div>
+            
+          </Container>
+        )}
+        <Center>
+              <HStack
+                width={"container.lg"}
+                overflowX={"auto"}
+                p={"8"}
+                className="example"
+              >
+                {finalPoint
+                  ? btns.map((number, index) => {
+                      return (
+                        <Button
+                          value={btnInt}
+                          onClick={() => paginate(index + 1)}
+                        >
+                          {index + 1}
+                        </Button>
+                      );
+                    })
+                  : ""}
+              </HStack>
+            </Center>
+      </Container>
+    </Container>
   );
 };
 
