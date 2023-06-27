@@ -8,8 +8,8 @@ import {
   Heading,
   filter,
 } from "@chakra-ui/react";
-import CardPad from "./CardPad";
 import Loader from "./Loader";
+import NewsPad from "./NewsCard";
 const News = () => {
   const [loading, setLoading] = useState(true);
   const [results, setResults] = useState([]);
@@ -93,12 +93,15 @@ const News = () => {
         {results.map((item, index) => {
           return (
             <div>
-              <CardPad
+              <NewsPad
+              id = {item.id}
                 img={item.image.url}
                 alt={item.title}
                 title={item.title}
                 baseUrl={item.webpageUrl}
                 key={item.index}
+                date={item.datePublished}
+
               />
             </div>
           );

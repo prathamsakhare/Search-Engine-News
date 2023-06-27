@@ -101,7 +101,7 @@ const Headlines = () => {
                       alt={item.title}
                       title={item.title}
                       baseUrl={item.webpageUrl}
-                      key={item.index}
+                      key={item.id}
                     />
                   </div>
                 );

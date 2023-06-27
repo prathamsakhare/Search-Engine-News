@@ -6,7 +6,7 @@ import {HashRouter as Router, Routes, Route} from 'react-router-dom'
 import Header from "./components/Header";
 import Headlines from "./components/Headlines";
 import News from "./components/News";
-
+import NewsDetails from "./components/NewsDetails";
 function App() {
   return (
     <ChakraBaseProvider theme={theme}>
@@ -16,6 +16,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/headlines" element={<Headlines />} />
           <Route path="/news" element={<News />} />
+          <Route path="/news/:id" element={<NewsDetails />} />
           
         </Routes>
       </Router>
