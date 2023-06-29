@@ -17,7 +17,7 @@ const Home = () => {
             </Link>
 
               <Heading>
-              Stop Refreshing, Start Laughing: Our News Web App Delivers Real-Time Awesomeness!!!
+              Stop Refreshing, Start Laughing: Our News Web App Delivers Real-Time Awesomeness!!
               </Heading>
           </Center>
         </HStack>
