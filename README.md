@@ -1,5 +1,5 @@
 ## News Search Engine - Your Ultimate news Aggregator
-Live Link - https://prathamsakhare.github.io/News-Search-Engine/
+Live Link - [https://prathamsakhare.github.io/News-Search-Engine/](https://prathamsakhare.github.io/Search-Engine-News/)
 
 News Search Engine is a state-of-the-art web application built using React.js, Web API, and Chakra UI, delivering a seamless and interactive news browsing experience. Designed to adapt to any device, News Search Engine is fully responsive, ensuring you can stay connected with the latest news on the go.
 
