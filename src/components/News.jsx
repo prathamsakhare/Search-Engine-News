@@ -68,7 +68,7 @@ const News = () => {
             <Button
               my={"3"}
               value={queryPoint}
-              onClick={() => changeQuery(index + 1)}
+              onClick={() => changeQuery(index)}
             >
               {number}
             </Button>
